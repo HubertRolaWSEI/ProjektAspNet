@@ -100,3 +100,63 @@
 }
     </tbody>
 </table>
+
+<!-- Sekcja stronicowania -->
+<nav>
+    <ul class="pagination">
+        @* Dodajemy zmienne pomocnicze *@
+        @{
+            var currentPage = (int)ViewData["CurrentPage"];
+            var totalPages = (int)ViewData["TotalPages"];
+        }
+
+        <!-- Przejdź do pierwszej strony -->
+        @if (currentPage > 1)
+        {
+            <li class="page-item">
+                <a class="page-link" href="@Url.Action("Index", new { page = 1 })">« First</a>
+            </li>
+        }
+
+        <!-- Poprzednia strona -->
+        @if (currentPage > 1)
+        {
+            <li class="page-item">
+                <a class="page-link" href="@Url.Action("Index", new { page = currentPage - 1 })">‹ Prev</a>
+            </li>
+        }
+
+        <!-- Numery stron -->
+        @for (int i = 1; i <= totalPages; i++)
+        {
+            if (i == 1 || i == totalPages || (i >= currentPage - 2 && i <= currentPage + 2))
+            {
+                <li class="page-item @(i == currentPage ? "active" : "")">
+                    <a class="page-link" href="@Url.Action("Index", new { page = i })">@i</a>
+                </li>
+            }
+            else if (i == currentPage - 3 || i == currentPage + 3)
+            {
+                <li class="page-item">
+                    <span class="page-link">...</span>
+                </li>
+            }
+        }
+
+        <!-- Następna strona -->
+        @if (currentPage < totalPages)
+        {
+            <li class="page-item">
+                <a class="page-link" href="@Url.Action("Index", new { page = currentPage + 1 })">Next ›</a>
+            </li>
+        }
+
+        <!-- Przejdź do ostatniej strony -->
+        @if (currentPage < totalPages)
+        {
+            <li class="page-item">
+                <a class="page-link" href="@Url.Action("Index", new { page = totalPages })">Last »</a>
+            </li>
+        }
+    </ul>
+</nav>

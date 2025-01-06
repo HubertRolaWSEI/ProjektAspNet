@@ -20,16 +20,25 @@ namespace WebApp.Controllers
         }
 
         // GET: Movie
-        public async Task<IActionResult> Index(int page=1, int pageSize=20)
+        public async Task<IActionResult> Index(int page = 1, int pageSize = 20)
         {
-            return View(await _context
+            var totalItems = await _context.Movies.CountAsync(); // Liczba wszystkich rekordów
+            var totalPages = (int)Math.Ceiling(totalItems / (double)pageSize); // Liczba stron
+
+            var movies = await _context
                 .Movies
                 .OrderBy(m => m.Title)
                 .Skip(pageSize * (page - 1))
                 .Take(pageSize)
                 .AsTracking()
-                .ToListAsync());
+                .ToListAsync();
+
+            ViewData["TotalPages"] = totalPages; // Przekazanie liczby stron do widoku
+            ViewData["CurrentPage"] = page; // Przekazanie aktualnej strony do widoku
+
+            return View(movies);
         }
+
 
         // GET: Movie/Details/5
         public async Task<IActionResult> Details(int? id)
