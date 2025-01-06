@@ -1,27 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Users\\hubert.rola\\RiderProjects\\AspNetLab8\\WebApp\\WebApp.csproj": {}
+    "C:\\Users\\huber\\RiderProjects\\AspNetLab8\\WebApp\\WebApp.csproj": {}
   },
   "projects": {
-    "D:\\Users\\hubert.rola\\RiderProjects\\AspNetLab8\\WebApp\\WebApp.csproj": {
+    "C:\\Users\\huber\\RiderProjects\\AspNetLab8\\WebApp\\WebApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Users\\hubert.rola\\RiderProjects\\AspNetLab8\\WebApp\\WebApp.csproj",
+        "projectUniqueName": "C:\\Users\\huber\\RiderProjects\\AspNetLab8\\WebApp\\WebApp.csproj",
         "projectName": "WebApp",
-        "projectPath": "D:\\Users\\hubert.rola\\RiderProjects\\AspNetLab8\\WebApp\\WebApp.csproj",
-        "packagesPath": "D:\\Users\\hubert.rola\\.nuget\\packages\\",
-        "outputPath": "D:\\Users\\hubert.rola\\RiderProjects\\AspNetLab8\\WebApp\\obj\\",
+        "projectPath": "C:\\Users\\huber\\RiderProjects\\AspNetLab8\\WebApp\\WebApp.csproj",
+        "packagesPath": "C:\\Users\\huber\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\huber\\RiderProjects\\AspNetLab8\\WebApp\\obj\\",
         "projectStyle": "PackageReference",
+        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
-          "D:\\Users\\hubert.rola\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\huber\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -34,6 +33,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "all"
         }
       },
       "frameworks": {
@@ -88,7 +92,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\huber\\.dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
