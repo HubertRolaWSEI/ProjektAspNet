@@ -15,8 +15,14 @@ public class Program
         {
             op.UseSqlite(builder.Configuration["MoviesDatabase:ConnectionString"]);
         });
-            
 
+        // Dodano konfigurację sesji
+        builder.Services.AddSession(options =>
+        {
+            options.IdleTimeout = TimeSpan.FromMinutes(30); // Czas trwania sesji
+            options.Cookie.HttpOnly = true;
+            options.Cookie.IsEssential = true;
+        });
 
         var app = builder.Build();
 
@@ -32,6 +38,9 @@ public class Program
         app.UseStaticFiles();
 
         app.UseRouting();
+
+        // Dodano obsługę sesji
+        app.UseSession();
 
         app.UseAuthorization();
 

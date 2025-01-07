@@ -7918,11 +7918,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\huber\\RiderProjects\\AspNetLab8\\WebApp\\WebApp.csproj",
+      "projectUniqueName": "C:\\Users\\huber\\RiderProjects\\ProjektAspNet\\WebApp\\WebApp.csproj",
       "projectName": "WebApp",
-      "projectPath": "C:\\Users\\huber\\RiderProjects\\AspNetLab8\\WebApp\\WebApp.csproj",
+      "projectPath": "C:\\Users\\huber\\RiderProjects\\ProjektAspNet\\WebApp\\WebApp.csproj",
       "packagesPath": "C:\\Users\\huber\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\huber\\RiderProjects\\AspNetLab8\\WebApp\\obj\\",
+      "outputPath": "C:\\Users\\huber\\RiderProjects\\ProjektAspNet\\WebApp\\obj\\",
       "projectStyle": "PackageReference",
       "UsingMicrosoftNETSdk": false,
       "configFilePaths": [

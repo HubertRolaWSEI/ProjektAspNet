@@ -5,11 +5,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using WebApp.Filters;
 using WebApp.Model.Movies;
 using WebApp.Models.Movies;
 
 namespace WebApp.Controllers
 {
+    [RequireLogin]
     public class MovieController : Controller
     {
         private readonly MoviesDbContext _context;

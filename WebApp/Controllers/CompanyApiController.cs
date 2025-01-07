@@ -1,10 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using WebApp.Filters;
 using WebApp.Model.Movies;
 
 namespace WebApp.Controllers;
 [ApiController]
 [Route("api/companies")]
+
+[RequireLogin]
 public class CompanyApiController : ControllerBase
 {
     private MoviesDbContext _context;

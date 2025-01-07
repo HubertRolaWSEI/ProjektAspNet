@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using WebApp.Models;
+using WebApp.Filters; // Importujemy filtr wymagający logowania
 
 namespace WebApp.Controllers;
 
@@ -15,9 +16,11 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        // Publiczna strona, dostępna dla każdego
         return View();
     }
 
+    [RequireLogin] // Wymagamy logowania, by uzyskać dostęp do tej akcji
     public IActionResult Privacy()
     {
         return View();
