@@ -1,38 +1,28 @@
-@model IEnumerable<WebApp.Controllers.ActorViewModel>
+@model IEnumerable<WebApp.Controllers.MovieViewModel>
 
-<h1>Actors</h1>
+<h1>Movies for @ViewBag.ActorName</h1>
+
 <table class="table">
     <thead>
     <tr>
-        <th>Name</th>
-        <th>Movie Count</th>
-        <th>Roles</th>
+        <th>Title</th>
+        <th>Budget</th>
+        <th>Popularity</th>
+        <th>Homepage</th>
     </tr>
     </thead>
     <tbody>
-    @foreach (var actor in Model)
+    @foreach (var movie in Model)
     {
         <tr>
-            <td class="w-25">@actor.PersonName</td>
-            <td class="w-25">
-                <a href="@Url.Action("Movies", "Actors", new { id = actor.PersonId })">
-                    @actor.MovieCount
-                </a>
-            </td>
-            <td class="w-50">
-                <button class="btn btn-link shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#roles-@actor.PersonId" aria-expanded="false" aria-controls="roles-@actor.PersonId">
-                    Show Roles
-                </button>
-                <div class="collapse " id="roles-@actor.PersonId">
-                    <ul class="list-group ">
-                        @foreach (var movie in actor.Movies)
-                        {
-                        <li class="list-group-item">
-                            <strong>@movie.Title:</strong> @movie.CharacterName
-                        </li>
-                        }
-                    </ul>
-                </div>
+            <td>@movie.Title</td>
+            <td>@movie.Budget</td>
+            <td>@movie.Popularity</td>
+            <td>
+                @if (!string.IsNullOrEmpty(movie.Homepage))
+                {
+                    <a href="@movie.Homepage" target="_blank">Link</a>
+                }
             </td>
         </tr>
     }

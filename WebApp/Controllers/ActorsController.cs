@@ -12,7 +12,6 @@ using WebApp.Models.Movies;
 
 namespace WebApp.Controllers
 {
-    [RequireLogin]
     public class ActorsController : Controller
     {
         private readonly MoviesDbContext _context;
@@ -102,7 +101,6 @@ namespace WebApp.Controllers
 
         
         [HttpGet]
-        [Authorize]
         public async Task<IActionResult> AddMovie(int id)
         {
             var actor = await _context.People.FirstOrDefaultAsync(p => p.PersonId == id);
