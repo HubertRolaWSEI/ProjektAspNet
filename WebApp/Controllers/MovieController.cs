@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WebApp.Filters;
 using WebApp.Model.Movies;
@@ -41,7 +40,6 @@ namespace WebApp.Controllers
             return View(movies);
         }
 
-
         // GET: Movie/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -67,8 +65,6 @@ namespace WebApp.Controllers
         }
 
         // POST: Movie/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("MovieId,Title,Budget,Homepage,Overview,Popularity,ReleaseDate,Revenue,Runtime,MovieStatus,Tagline,VoteAverage,VoteCount")] Movie movie)
@@ -99,8 +95,6 @@ namespace WebApp.Controllers
         }
 
         // POST: Movie/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("MovieId,Title,Budget,Homepage,Overview,Popularity,ReleaseDate,Revenue,Runtime,MovieStatus,Tagline,VoteAverage,VoteCount")] Movie movie)
@@ -169,6 +163,17 @@ namespace WebApp.Controllers
         private bool MovieExists(int id)
         {
             return _context.Movies.Any(e => e.MovieId == id);
+        }
+
+        // GET: Movie/Actors
+        public async Task<IActionResult> Actors()
+        {
+            // Pobieramy listę aktorów z tabeli Persons
+            var actors = await _context.People
+                .OrderBy(p => p.PersonName) // Sortujemy alfabetycznie po nazwie
+                .ToListAsync();
+
+            return View(actors); // Przekazujemy dane do widoku
         }
     }
 }
