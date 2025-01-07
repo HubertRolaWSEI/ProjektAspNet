@@ -175,5 +175,6 @@ namespace WebApp.Controllers
 
             return View(actors); // Przekazujemy dane do widoku
         }
+        
     }
 }
