@@ -165,16 +165,9 @@ namespace WebApp.Controllers
             return _context.Movies.Any(e => e.MovieId == id);
         }
 
-        // GET: Movie/Actors
-        public async Task<IActionResult> Actors()
-        {
-            // Pobieramy listę aktorów z tabeli Persons
-            var actors = await _context.People
-                .OrderBy(p => p.PersonName) // Sortujemy alfabetycznie po nazwie
-                .ToListAsync();
-
-            return View(actors); // Przekazujemy dane do widoku
-        }
         
     }
+
+    
 }
+

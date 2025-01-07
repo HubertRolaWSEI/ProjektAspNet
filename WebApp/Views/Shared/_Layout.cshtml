@@ -29,7 +29,7 @@
                         <a class="nav-link text-dark" asp-area="" asp-controller="Movie" asp-action="Index">Movie</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Movie" asp-action="Actors">Actors</a>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Actors" asp-action="Index">Actors</a>
                     </li>
                     <!-- Dodano kafelek logowania/wylogowania -->
                     @if (ViewContext.HttpContext.Session.GetString("User") == null)
