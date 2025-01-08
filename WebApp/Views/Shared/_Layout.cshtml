@@ -31,20 +31,6 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Actors" asp-action="Index">Actors</a>
                     </li>
-                    <!-- Dodano kafelek logowania/wylogowania -->
-                    @if (ViewContext.HttpContext.Session.GetString("User") == null)
-                    {
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
-                        </li>
-                    }
-                    else
-                    {
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
-                        </li>
-                    }
-
                 </ul>
             </div>
         </div>

@@ -13,11 +13,10 @@ namespace WebApp.Controllers
         [HttpPost]
         public IActionResult Login(string username, string password)
         {
-            // Prosta logika logowania (możesz ją zastąpić czymś bardziej zaawansowanym)
             if (username == "admin" && password == "admin123")
             {
-                HttpContext.Session.SetString("User", username); // Zapisujemy użytkownika w sesji
-                return RedirectToAction("Index", "Home");
+                HttpContext.Session.SetString("User", username);
+                return RedirectToAction("Index", "Actors");
             }
 
             ViewBag.Error = "Nieprawidłowa nazwa użytkownika lub hasło.";
@@ -26,7 +25,7 @@ namespace WebApp.Controllers
 
         public IActionResult Logout()
         {
-            HttpContext.Session.Remove("User"); // Usuwamy użytkownika z sesji
+            HttpContext.Session.Remove("User");
             return RedirectToAction("Index", "Home");
         }
     }

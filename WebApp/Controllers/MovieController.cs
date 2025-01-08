@@ -22,8 +22,8 @@ namespace WebApp.Controllers
         // GET: Movie
         public async Task<IActionResult> Index(int page = 1, int pageSize = 20)
         {
-            var totalItems = await _context.Movies.CountAsync(); // Liczba wszystkich rekordów
-            var totalPages = (int)Math.Ceiling(totalItems / (double)pageSize); // Liczba stron
+            var totalItems = await _context.Movies.CountAsync(); 
+            var totalPages = (int)Math.Ceiling(totalItems / (double)pageSize); 
 
             var movies = await _context
                 .Movies
@@ -33,8 +33,8 @@ namespace WebApp.Controllers
                 .AsTracking()
                 .ToListAsync();
 
-            ViewData["TotalPages"] = totalPages; // Przekazanie liczby stron do widoku
-            ViewData["CurrentPage"] = page; // Przekazanie aktualnej strony do widoku
+            ViewData["TotalPages"] = totalPages; 
+            ViewData["CurrentPage"] = page; 
 
             return View(movies);
         }
