@@ -101,6 +101,7 @@ namespace WebApp.Controllers
 
         
         [HttpGet]
+        [RequireLogin]
         public async Task<IActionResult> AddMovie(int id)
         {
             var actor = await _context.People.FirstOrDefaultAsync(p => p.PersonId == id);
@@ -121,9 +122,8 @@ namespace WebApp.Controllers
 
 
 
-        
+        [RequireLogin]
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddMovie(int actorId, int movieId, string characterName)
         {
             if (actorId == 0 || movieId == 0 || string.IsNullOrEmpty(characterName))

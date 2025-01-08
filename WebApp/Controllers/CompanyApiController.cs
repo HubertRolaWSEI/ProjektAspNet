@@ -7,7 +7,7 @@ namespace WebApp.Controllers;
 [ApiController]
 [Route("api/companies")]
 
-[RequireLogin]
+
 public class CompanyApiController : ControllerBase
 {
     private MoviesDbContext _context;

@@ -10,7 +10,6 @@ using WebApp.Models.Movies;
 
 namespace WebApp.Controllers
 {
-    [RequireLogin]
     public class MovieController : Controller
     {
         private readonly MoviesDbContext _context;

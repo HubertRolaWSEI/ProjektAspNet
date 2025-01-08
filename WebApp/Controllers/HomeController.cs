@@ -20,7 +20,7 @@ public class HomeController : Controller
         return View();
     }
 
-    [RequireLogin] // Wymagamy logowania, by uzyskać dostęp do tej akcji
+ // Wymagamy logowania, by uzyskać dostęp do tej akcji
     public IActionResult Privacy()
     {
         return View();

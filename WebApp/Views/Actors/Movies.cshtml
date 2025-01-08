@@ -2,6 +2,8 @@
 
 <h1>Movies for @ViewBag.ActorName</h1>
 
+<a href="@Url.Action("AddMovie", "Actors", new { id = ViewBag.ActorId })" class="btn btn-primary">Add Movie</a>
+
 <table class="table">
     <thead>
     <tr>
@@ -21,38 +23,10 @@
             <td>
                 @if (!string.IsNullOrEmpty(movie.Homepage))
                 {
-                    <a href="@movie.Homepage" target="_blank">Link</a>
+                    <a href="@movie.Homepage" target="_blank">Homepage</a>
                 }
             </td>
         </tr>
     }
     </tbody>
 </table>
-
-
-<!-- Nawigacja między stronami -->
-@if (ViewBag.TotalPages > 1)
-{
-<nav aria-label="Page navigation">
-    <ul class="pagination">
-
-        <!-- Numery stron -->
-        @for (int i = 1; i <= ViewBag.TotalPages; i++)
-        {
-        if (i == 1 || i == ViewBag.TotalPages || (i >= ViewBag.CurrentPage - 2 && i <= ViewBag.CurrentPage + 2))
-        {
-        <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
-            <a class="page-link" href="@Url.Action("Index", new { page = i })">@i</a>
-        </li>
-        }
-        else if (i == ViewBag.CurrentPage - 3 || i == ViewBag.CurrentPage + 3)
-        {
-        <li class="page-item disabled">
-            <span class="page-link">...</span>
-        </li>
-        }
-        }
-        
-    </ul>
-</nav>
-}
