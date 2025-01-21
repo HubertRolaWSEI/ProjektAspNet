@@ -41,7 +41,8 @@ public class Program
 
         // Dodano obsługę sesji
         app.UseSession();
-
+        
+        app.UseAuthentication();
         app.UseAuthorization();
 
         app.MapControllerRoute(

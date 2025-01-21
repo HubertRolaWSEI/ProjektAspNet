@@ -25,8 +25,8 @@
                 <span asp-validation-for="CompanyId" class="text-danger"></span>
                 <input name="filter" type="search" id="filter"/>
             </div>
-            
-            
+
+
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
@@ -43,25 +43,25 @@
         const select = document.getElementById('CompanyId');
         const filter = document.getElementById('filter');
         filter.onchange = (e) => {
-        fetch(`/api/companies?fragment=${filter.value}`)
-        .then(response =>{
-        if (response.ok){
-            return response.json();
-        }
-        throw "No, Ok, actual status " + response.status;
-        })
-        .then(companies => {
-        select.innerHTML ="";
-        for (let item of companies){
-            const option = document.createElement('option');
-            option.setAttribute('value', item.companyId);
-            option.innerText = item.companyName;
-            select.appendChild(option);
-        }
-        })
-        .catch(e => {
-            console.error("Cant get from api", e);
-        });
+            fetch(`/api/companies?fragment=${filter.value}`)
+                .then(response =>{
+                    if (response.ok){
+                        return response.json();
+                    }
+                    throw "No, Ok, actual status " + response.status;
+                })
+                .then(companies => {
+                    select.innerHTML ="";
+                    for (let item of companies){
+                        const option = document.createElement('option');
+                        option.setAttribute('value', item.companyId);
+                        option.innerText = item.companyName;
+                        select.appendChild(option);
+                    }
+                })
+                .catch(e => {
+                    console.error("Cant get from api", e);
+                });
         };
     </script>
 }

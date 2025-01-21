@@ -16,7 +16,7 @@ namespace WebApp.Controllers
             if (username == "admin" && password == "admin123")
             {
                 HttpContext.Session.SetString("User", username);
-                return RedirectToAction("Index", "Actors");
+                return RedirectToAction("Index", "Home");
             }
 
             ViewBag.Error = "Nieprawidłowa nazwa użytkownika lub hasło.";
